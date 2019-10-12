@@ -1,0 +1,6 @@
+[submodule "godot-cpp"]
+	path = godot-cpp
+	url = https://github.com/hlfstr/godot-cpp.git
+[submodule "source/voxot"]
+	path = source/voxot
+	url = https://github.com/hlfstr/voxot
