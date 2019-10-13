@@ -84,6 +84,9 @@ elif env['platform'] == "android":
         raise ValueError(
             'ANDROID_NDK_HOME is not set!'
         )
+    else:
+        os.environ['PATH'] = os.environ['ANDROID_NDK_HOME'] + ":" + os.environ['PATH']
+    
     # Get num of jobs passed
     num_jobs = "-j"+str(GetOption('num_jobs'))
     if env['android_arch'] ==  'armv7':
@@ -103,12 +106,10 @@ elif env['platform'] == "android":
 
     # NDK Command
     command = ["ndk-build", num_jobs, "NDK_LIBS_OUT=lib", "NDK_OUT=bin/obj"]
-    # Call with env set
-    try:
-        check_call(command)
-    except subprocess.CalledProcessError:
-        exit()
-    os.remove("lib/"+os.environ['SC_ARCH']+"/libc++_shared.so")
+    retval = subprocess.call(command)
+    if retval == 0:
+        print("[X] Removing extra libc++_shared.so")
+        os.remove("lib/"+os.environ['SC_ARCH']+"/libc++_shared.so")
     # Exit script, all done
     exit()
 

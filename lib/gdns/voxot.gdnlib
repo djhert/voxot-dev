@@ -12,5 +12,5 @@ X11.64="res://lib/linux/libvoxot-dev.so"
 
 [dependencies]
 
-Android.arm64-v8a=[ "res://lib/arm64-v8a/libgodot.so" ]
+Android.arm64-v8a=[  ]
 X11.64=[  ]

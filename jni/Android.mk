@@ -3,8 +3,8 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libgodot
-LOCAL_SRC_FILES := $(PWD)/godot-cpp/bin/$(SC_ARCH)/libgodot.so
-include $(PREBUILT_SHARED_LIBRARY)
+LOCAL_SRC_FILES := $(PWD)/godot-cpp/bin/$(SC_ARCH)/libgodot.$(SC_TARGET).a
+include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 ifeq ($(SC_CLANG), true)
@@ -20,7 +20,7 @@ LOCAL_LDLIBS := -llog
 LOCAL_MODULE := $(LOCAL_MODULE)
 
 ifeq ($(SC_TARGET),debug)
-	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -g3 -Og -DDEBUG
+	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -g -Og -DDEBUG
 else
 	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -O3
 endif
