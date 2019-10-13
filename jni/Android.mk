@@ -20,7 +20,7 @@ LOCAL_LDLIBS := -llog
 LOCAL_MODULE := $(LOCAL_MODULE)
 
 ifeq ($(SC_TARGET),debug)
-	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -g -Og -DDEBUG
+	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -g -Og -D_DEBUG
 else
 	LOCAL_CPPFLAGS := $(LOCAL_CPPFLAGS) -fPIC -O3
 endif
@@ -31,7 +31,8 @@ LOCAL_C_INCLUDES := \
 $(PWD)/godot-cpp/godot_headers \
 $(PWD)/godot-cpp/include \
 $(PWD)/godot-cpp/include/gen \
-$(PWD)/godot-cpp/include/core
+$(PWD)/godot-cpp/include/core \
+$(PWD)/source/include
 
 LOCAL_SHARED_LIBRARIES := libgodot
 

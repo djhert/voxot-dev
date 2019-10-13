@@ -62,7 +62,7 @@ elif env['platform'] in ('x11', 'linux'):
     env['target_path'] += 'linux/'
     cpp_library += '.linux'
     if env['target'] in ('debug', 'd'):
-        env.Append(CCFLAGS = ['-fPIC', '-g', '-std=c++17', '-DDEBUG'])
+        env.Append(CCFLAGS = ['-fPIC', '-g', '-std=c++17', '-D_DEBUG'])
     else:
         env.Append(CCFLAGS = ['-fPIC', '-O3', '-std=c++17'])
 
@@ -122,7 +122,7 @@ else:
 cpp_library += '.' + str(bits)
 
 # make sure our binding library is properly includes
-env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
+env.Append(CPPPATH=[godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/', 'source/include'])
 env.Append(LIBPATH=[cpp_bindings_path + 'bin/'])
 env.Append(LIBS=[cpp_library])
 
