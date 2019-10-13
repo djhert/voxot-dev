@@ -2,5 +2,5 @@
 	path = godot-cpp
 	url = https://github.com/hlfstr/godot-cpp.git
 [submodule "source/voxot"]
-	path = source/voxot
+	path = source/include/voxot
 	url = https://github.com/hlfstr/voxot
