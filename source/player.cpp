@@ -1,5 +1,7 @@
 #include "player.hpp"
 
+REGISTER_CLASS(Player);
+
 Player::Player() {}
 Player::~Player() {}
 
@@ -17,8 +19,7 @@ void Player::_register_methods() {
 	register_property<Player, double>("Mouse Sensitivity", &Player::mouse_sensitivity, 0.3f);
 	register_property<Player, double>("Fly Speed", &Player::flyspeed, 20.0);
 
-	register_method("_ready", &Player::_ready);
-	register_method("_process", &Player::_process);
+	GDNATIVE_REGISTER(Player)
 	register_method("_input", &Player::_input);
 	register_method("_physics_process", &Player::_physics_process);
 }

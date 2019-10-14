@@ -4,3 +4,9 @@
 [submodule "source/voxot"]
 	path = source/include/voxot
 	url = https://github.com/hlfstr/voxot
+[submodule "source/include/voxot"]
+	path = source/include/voxot
+	url = https://github.com/hlfstr/voxot
+[submodule "source/include/gdutil"]
+	path = source/include/gdutil
+	url = https://github.com/hlfstr/gdutil

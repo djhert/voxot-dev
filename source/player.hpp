@@ -19,16 +19,9 @@
 using namespace godot;
 
 class Player : public KinematicBody {
-	GODOT_CLASS(Player, KinematicBody)
+	GDNATIVE_CLASS(Player, KinematicBody)
 
 public:
-	Player();
-	~Player();
-
-	static void _register_methods();
-	void _init();
-	void _ready();
-	void _process(double);
 	void _input(Variant);
 	void _physics_process(double);
 
